@@ -71,6 +71,37 @@ body{
   width: 250px;
 }
 
+
+.sidebar {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+
+.sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+
+.sidebar::-webkit-scrollbar {
+  width: 0; 
+  background: transparent;
+}
+
+.sidebar {
+  scrollbar-width: none;
+}
+
+.sidebar {
+  -ms-overflow-style: none; 
+}
+
 .sidebar .logo_details{
   height: 60px;
   display: flex;
@@ -203,6 +234,16 @@ body{
   z-index: 12;
 }
 
+.sidebar .logo_details {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: sticky; 
+  top: 0; 
+  background-color: var(--color-default); 
+  z-index: 100; 
+}
+
 .sidebar li a::after{
   content: "";
   position: absolute;
@@ -259,6 +300,7 @@ body{
   padding:10px 14px;
   overflow: hidden;
   transition: all .5s ease;
+  z-index: 100;
 }
 
 .sidebar.open li.profile{
@@ -418,6 +460,20 @@ body{
   display: inline-block; 
 }
 
+.card.uniqe {
+  background-color: var(--color-default);
+  color: var(--color-white);
+  border: 1px solid var(--color-light);
+}
+
+.card.uniqe .icon {
+  color: var(--color-white);
+}
+
+.card.uniqe .card-title {
+  color: var(--color-white); 
+}
+
 @media (max-width: 1200px) {
   .card {
     width: calc(100% / 4 - 20px);
@@ -440,19 +496,4 @@ body{
   .card {
     width: 100%;
   }
-}
-
-
-.card.uniqe {
-  background-color: var(--color-default);
-  color: var(--color-white);
-  border: 1px solid var(--color-light);
-}
-
-.card.uniqe .icon {
-  color: var(--color-white);
-}
-
-.card.uniqe .card-title {
-  color: var(--color-white); 
 }
