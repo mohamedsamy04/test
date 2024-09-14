@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شركه سمارت مون</title>
+  <!-- رابط الأنماط -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/عمليه بيع جديده.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <p>جاري التحميل...</p>
+  </div>
+  
+    <div class="sidebar">
+      <div class="logo_details">
+        <i class="bx bx-moon icon"></i>
+        <div class="logo_name">سمارت مون</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <i class="bx bx-search"></i>
+          <input type="text" placeholder="بحث...">
+          <span class="tooltip">بحث</span>
+        </li>
+        <li>
+        <li>
+          <a href="index.html">
+            <i class="bx bx-home"></i>
+            <span class="link_name">الرئيسيه</span>
+          </a>
+          <span class="tooltip">الرئيسيه</span>
+        </li>
+        
+        <!-- العملاء مع قائمة فرعية -->
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="link_name">العملاء</span>
+            <i class="bx bx-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="ايصال استلام عميل .html"><i class="bx bx-receipt"></i>ايصال استلام</a></li>
+            <li><a href="ايصال صرف عميل.html"><i class="bx bx-receipt"></i>ايصال صرف</a></li>
+            <li><a href="عرض العملاء.html"><i class="bx bx-user"></i>عرض العملاء</a></li>
+          </ul>
+          <span class="tooltip">العملاء</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-package"></i>
+            <span class="link_name">الموردين</span>
+            <i class="bx bx-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="ايصال استلام مورد.html"><i class="bx bx-receipt"></i>ايصال استلام</a></li>
+            <li><a href="ايصال صرف مورد.html"><i class="bx bx-receipt"></i>ايصال صرف</a></li>
+          </ul>
+          <span class="tooltip">الموردين</span>
+        </li>
+        
+        <!-- عروض الاسعار -->
+        <li>
+          <a href="#">
+            <i class="bx bx-tag"></i>
+            <span class="link_name">عروض الاسعار</span>
+          </a>
+          <span class="tooltip">عروض الاسعار</span>
+        </li>
+        
+        <!-- الموظفين والرواتب مع قائمة فرعية -->
+        <li>
+          <a href="#">
+            <i class="bx bx-building"></i>
+            <span class="link_name">الموظفين والرواتب</span>
+            <i class="bx bx-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#"><i class="bx bx-group"></i>قائمة الموظفين</a></li>
+            <li><a href="#"><i class="bx bx-money"></i>صرف مرتبات</a></li>
+            <li><a href="#"><i class="bx bx-credit-card"></i>سلفه - حافز - خصم</a></li>
+          </ul>
+          <span class="tooltip">الموظفين والرواتب</span>
+        </li>
+      
+        <!-- التقارير مع قائمة فرعية -->
+        <li>
+          <a href="#">
+            <i class="bx bx-line-chart"></i>
+            <span class="link_name">التقارير</span>
+            <i class="bx bx-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#"><i class="bx bx-bar-chart-alt"></i>الموقف المالي</a></li>
+            <li><a href="#"><i class="bx bx-layer"></i>حركة صنف</a></li>
+            <li><a href="#"><i class="bx bx-money"></i>مصروفات يومية</a></li>
+            <li><a href="#"><i class="bx bx-cart"></i>مبيعات يومية</a></li>
+            <li><a href="#"><i class="bx bx-wallet"></i>عمليات درج اليوم</a></li>
+            <li><a href="#"><i class="bx bx-trending-up"></i>صافى الربح خلال مدة زمنية</a></li>
+          </ul>
+          <span class="tooltip">التقارير</span>
+        </li>
+        
+        <!-- الإعدادات -->
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="link_name">الإعدادات</span>
+          </a>
+          <span class="tooltip">الإعدادات</span>
+        </li>
+        
+        <!-- التنبيهات -->
+        <li>
+          <a href="#">
+            <i class="bx bx-bell"></i>
+            <span class="link_name">التنبيهات</span>
+          </a>
+          <span class="tooltip">التنبيهات</span>
+        </li>
+        
+        <li class="profile">
+          <div class="profile_details">
+            <i class="bx bx-user"></i>
+            <div class="profile_content">
+              <div class="name">سامي</div>
+              <div class="designation">مدير</div>
+            </div>
+          </div>
+          <i class="bx bx-log-out" id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+    <section class="invoice-section">
+      <div class="separator">
+        <h2>فاتوره شراء جديده</h2>
+      </div>     
+      <!-- الصف الأول: اختيار المورد ومورد -->
+      <div class="row">
+        <div class="column">
+          <label for="client">اختيار المورد</label>
+          <div class="custom-select">
+            <input type="text" id="client" placeholder="اختر المورد" autocomplete="off">
+            <button class="add-btn" id="add-custom">إضافة مورد</button>
+            <div class="options-list" id="client-options">
+              <div class="option" data-value="مورد 1">مورد 1</div>
+              <div class="option" data-value="مورد 2">مورد 2</div>
+              <div class="option" data-value="مورد 3">مورد 3</div>
+              <div class="option" data-value="مورد 4">مورد 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- الصف الثاني: اختيار الصنف والكمية -->
+      <div class="row">
+        <div class="column">
+          <label for="item">اختيار الصنف</label>
+          <div class="custom-select">
+            <input type="text" id="item" placeholder="اختر الصنف" autocomplete="off">
+            <button class="add-btn" id="add-item">إضافة صنف</button>
+            <div class="options-list" id="item-options">
+              <div class="option" data-value="صنف 1">صنف 1</div>
+              <div class="option" data-value="صنف 2">صنف 2</div>
+              <div class="option" data-value="صنف 3">صنف 3</div>
+              <div class="option" data-value="صنف 4">صنف 4</div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="column">
+          <label for="quantity">الكمية</label>
+          <input type="number" id="quantity" placeholder="ادخل الكمية">
+        </div>
+    
+        <div class="column">
+          <label for="store">المخزن</label>
+          <div class="custom-select">
+            <input type="text" id="store" placeholder="اختر المخزن" autocomplete="off">
+            <div class="options-list" id="store-options">
+              <div class="option" data-value="مخزن 1">مخزن 1</div>
+              <div class="option" data-value="مخزن 2">مخزن 2</div>
+              <div class="option" data-value="مخزن 3">مخزن 3</div>
+              <div class="option" data-value="مخزن 4">مخزن 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- الصف الثالث: السعر والإضافة -->
+      <div class="row">
+        <div class="column">
+          <label for="price2">سعر البيع</label>
+          <div class="input-group">
+            <input type="number" id="price2" placeholder="ادخل السعر البيع">
+          </div>
+        </div>
+        <div class="column">
+          <label for="price">سعر الشراء</label>
+          <div class="input-group">
+            <input type="number" id="price" placeholder="ادخل السعر الشراء">
+            <button class="add-price-btn"><i class='bx bx-plus'></i></button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- جدول الفاتورة -->
+      <table class="invoice-table">
+        <thead>
+          <tr>
+            <th>الصنف</th>
+            <th>الكمية</th>
+            <th>السعر</th>
+            <th>الإجمالي</th>
+            <th>المخزن</th>
+            <th>تعديل</th>
+            <th>حذف</th> 
+          </tr>
+        </thead>
+        <tbody id="invoice-body">
+        </tbody>
+      </table>
+    
+      <!-- إجمالي الفاتورة -->
+      <div class="total">
+        <p id="total-text">الإجمالي: <span id="total-amount-text">0</span> جنيه</p>
+      </div>
+    
+      <!-- طرق الدفع والخصم -->
+      <div class="row">
+        <div class="column">
+          <label for="payment-method">طريقة الدفع</label>
+          <select id="payment-method">
+            <option value="كاش">كاش</option>
+            <option value="آجل">آجل</option>
+          </select>
+        </div>
+    
+        <div class="column">
+          <label for="discount">الخصم</label>
+          <div class="input-group">
+            <input type="number" id="discount" placeholder="ادخل الخصم">
+            <select id="discount-type">
+              <option value="مبلغ">مبلغ</option>
+              <option value="نسبة">نسبة</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    
+      <!-- الدفع النقدي والخزنة -->
+      <div class="row">
+        <div class="column">
+          <label for="cash-amount">المبلغ نقداً</label>
+          <input type="number" id="cash-amount" placeholder="ادخل المبلغ">
+        </div>
+    
+        <div class="column">
+          <label for="cash-register">الخزنة</label>
+          <div class="custom-select">
+            <input type="text" id="cash-register" placeholder="اختر الخزنة" autocomplete="off">
+            <div class="options-list" id="cash-register-options">
+              <div class="option" data-value="الخزنة 1">الخزنة 1</div>
+              <div class="option" data-value="الخزنة 2">الخزنة 2</div>
+              <div class="option" data-value="الخزنة 3">الخزنة 3</div>
+              <div class="option" data-value="الخزنة 4">الخزنة 4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- الباقي -->
+      <div class="row">
+        <div class="column">
+          <div class="remaining">
+            <p id="remaining-text">المتبقي: <span id="remaining-amount-text">0</span> جنيه</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- الأزرار -->
+      <div class="buttons">
+        <button class="save-btn">حفظ الفاتورة</button>
+        <button class="print-btn">طباعة الفاتورة</button>
+      </div>
+    </section>
+    
+    
+  <!-- السكريبتات -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

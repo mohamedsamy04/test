@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شركه سمارت مون</title>
+  <!-- رابط الأنماط -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/عمليه بيع جديده.css">
+  <link rel="stylesheet" href="css/عميل جديد.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <p>جاري التحميل...</p>
+  </div>
+  
+    <div class="sidebar">
+      <div class="logo_details">
+        <i class="bx bx-moon icon"></i>
+        <div class="logo_name">سمارت مون</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <i class="bx bx-search"></i>
+          <input type="text" placeholder="بحث...">
+          <span class="tooltip">بحث</span>
+        </li>
+        <li>
+        <li>
+          <a href="index.html">
+            <i class="bx bx-home"></i>
+            <span class="link_name">الرئيسيه</span>
+          </a>
+          <span class="tooltip">الرئيسيه</span>
+        </li>
+        
+        <!-- العملاء مع قائمة فرعية -->
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="link_name">العملاء</span>
+            <i class="bx bx-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="ايصال استلام عميل .html"><i class="bx bx-receipt"></i>ايصال استلام</a></li>
+            <li><a href="ايصال صرف عميل.html"><i class="bx bx-receipt"></i>ايصال صرف</a></li>
+            <li><a href="عرض العملاء.html"><i class="bx bx-user"></i>عرض العملاء</a></li>
+          </ul>
+          <span class="tooltip">العملاء</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-package"></i>
+            <span class="link_name">الموردين</span>
+            <i class="bx bx-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="ايصال استلام مورد.html"><i class="bx bx-receipt"></i>ايصال استلام</a></li>
+            <li><a href="ايصال صرف مورد.html"><i class="bx bx-receipt"></i>ايصال صرف</a></li>
+          </ul>
+          <span class="tooltip">الموردين</span>
+        </li>
+        
+        <!-- عروض الاسعار -->
+        <li>
+          <a href="#">
+            <i class="bx bx-tag"></i>
+            <span class="link_name">عروض الاسعار</span>
+          </a>
+          <span class="tooltip">عروض الاسعار</span>
+        </li>
+        
+        <!-- الموظفين والرواتب مع قائمة فرعية -->
+        <li>
+          <a href="#">
+            <i class="bx bx-building"></i>
+            <span class="link_name">الموظفين والرواتب</span>
+            <i class="bx bx-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#"><i class="bx bx-group"></i>قائمة الموظفين</a></li>
+            <li><a href="#"><i class="bx bx-money"></i>صرف مرتبات</a></li>
+            <li><a href="#"><i class="bx bx-credit-card"></i>سلفه - حافز - خصم</a></li>
+          </ul>
+          <span class="tooltip">الموظفين والرواتب</span>
+        </li>
+      
+        <!-- التقارير مع قائمة فرعية -->
+        <li>
+          <a href="#">
+            <i class="bx bx-line-chart"></i>
+            <span class="link_name">التقارير</span>
+            <i class="bx bx-chevron-down dropdown-icon"></i>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="#"><i class="bx bx-bar-chart-alt"></i>الموقف المالي</a></li>
+            <li><a href="#"><i class="bx bx-layer"></i>حركة صنف</a></li>
+            <li><a href="#"><i class="bx bx-money"></i>مصروفات يومية</a></li>
+            <li><a href="#"><i class="bx bx-cart"></i>مبيعات يومية</a></li>
+            <li><a href="#"><i class="bx bx-wallet"></i>عمليات درج اليوم</a></li>
+            <li><a href="#"><i class="bx bx-trending-up"></i>صافى الربح خلال مدة زمنية</a></li>
+          </ul>
+          <span class="tooltip">التقارير</span>
+        </li>
+        
+        <!-- الإعدادات -->
+        <li>
+          <a href="#">
+            <i class="bx bx-cog"></i>
+            <span class="link_name">الإعدادات</span>
+          </a>
+          <span class="tooltip">الإعدادات</span>
+        </li>
+        
+        <!-- التنبيهات -->
+        <li>
+          <a href="#">
+            <i class="bx bx-bell"></i>
+            <span class="link_name">التنبيهات</span>
+          </a>
+          <span class="tooltip">التنبيهات</span>
+        </li>
+        
+        <li class="profile">
+          <div class="profile_details">
+            <i class="bx bx-user"></i>
+            <div class="profile_content">
+              <div class="name">سامي</div>
+              <div class="designation">مدير</div>
+            </div>
+          </div>
+          <i class="bx bx-log-out" id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+    <section class="add-client-section">
+      <div class="separator">
+        <h2>إضافة عميل جديد</h2>
+      </div>
+      
+      <!-- نموذج إضافة عميل -->
+      <form class="add-client-form">
+        <div class="row">
+          <label for="client-name">اسم العميل</label>
+          <input type="text" id="client-name" placeholder="ادخل اسم العميل">
+          <span class="error" id="error-client-name"></span>
+        </div>
+        
+        <div class="row">
+          <label for="client-address">عنوان العميل</label>
+          <input type="text" id="client-address" placeholder="ادخل عنوان العميل">
+          <span class="error" id="error-client-address"></span>
+        </div>
+        
+        <div class="row">
+          <label for="client-national-id">الرقم القومي</label>
+          <input type="text" id="client-national-id" placeholder="ادخل الرقم القومي">
+          <span class="error" id="error-client-national-id"></span>
+        </div>
+        
+        <div class="row">
+          <label for="client-phone">رقم الهاتف</label>
+          <input type="text" id="client-phone" placeholder="ادخل رقم الهاتف">
+          <span class="error" id="error-client-phone"></span>
+        </div>
+        
+        <div class="row">
+          <label for="client-mobile">رقم الموبايل</label>
+          <input type="text" id="client-mobile" placeholder="ادخل رقم الموبايل">
+          <span class="error" id="error-client-mobile"></span>
+        </div>
+        
+        <!-- أزرار الحفظ -->
+        <div class="buttons">
+          <button type="submit" class="save-client-btn">حفظ</button>
+        </div>
+      </form>
+    </section>
+      
+    
+  <!-- السكريبتات -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/عميل .js"></script>
+</body>
+</html>
