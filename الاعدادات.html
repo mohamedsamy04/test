@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شركه سمارت مون</title>
+  <!-- رابط الأنماط -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/عمليه بيع جديده.css">
+  <link rel="stylesheet" href="css/الاعدادات.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="spinner"></div>
+    <p>جاري التحميل...</p>
+  </div>
+  
+  <div class="sidebar">
+    <div class="logo_details">
+      <i class="bx bx-moon icon"></i>
+      <div class="logo_name">سمارت مون</div>
+      <i class="bx bx-menu" id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <i class="bx bx-search"></i>
+        <input type="text" placeholder="بحث...">
+        <span class="tooltip">بحث</span>
+      </li>
+      <li>
+      <li>
+        <a href="الرئيسيه.html">
+          <i class="bx bx-home"></i>
+          <span class="link_name">الرئيسيه</span>
+        </a>
+        <span class="tooltip">الرئيسيه</span>
+      </li>
+      
+      <!-- العملاء مع قائمة فرعية -->
+      <li>
+        <a href="#">
+          <i class="bx bx-user"></i>
+          <span class="link_name">العملاء</span>
+          <i class="bx bx-chevron-down dropdown-icon"></i>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="ايصال استلام عميل .html"><i class="bx bx-receipt"></i>ايصال استلام</a></li>
+          <li><a href="ايصال صرف عميل.html"><i class="bx bx-receipt"></i>ايصال صرف</a></li>
+          <li><a href="عرض العملاء.html"><i class="bx bx-user"></i>عرض العملاء</a></li>
+        </ul>
+        <span class="tooltip">العملاء</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-package"></i>
+          <span class="link_name">الموردين</span>
+          <i class="bx bx-chevron-down dropdown-icon"></i>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="ايصال استلام مورد.html"><i class="bx bx-receipt"></i>ايصال استلام</a></li>
+          <li><a href="ايصال صرف مورد.html"><i class="bx bx-receipt"></i>ايصال صرف</a></li>
+          <li><a href="عرض موردين.html"><i class="bx bx-group"></i>عرض الموردين</a></li>
+        </ul>
+        <span class="tooltip">الموردين</span>
+      </li>
+      
+      
+      <!-- عروض الاسعار -->
+      <li>
+        <a href="عروض اسعار.html">
+          <i class="bx bx-tag"></i>
+          <span class="link_name">عروض الاسعار</span>
+        </a>
+        <span class="tooltip">عروض الاسعار</span>
+      </li>
+      
+      <!-- الموظفين والرواتب مع قائمة فرعية -->
+      <li>
+        <a href="#">
+          <i class="bx bx-building"></i>
+          <span class="link_name">الموظفين والرواتب</span>
+          <i class="bx bx-chevron-down dropdown-icon"></i>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="قائمه الموظفين.html"><i class="bx bx-group"></i>قائمة الموظفين</a></li>
+          <li><a href="صرف مرتبات.html"><i class="bx bx-money"></i>صرف مرتبات</a></li>
+          <li><a href="تسجيل السلف و الحوافز و الخصومات.html"><i class="bx bx-credit-card"></i>سلفه - حافز - خصم</a></li>
+        </ul>
+        <span class="tooltip">الموظفين والرواتب</span>
+      </li>
+    
+      <!-- التقارير مع قائمة فرعية -->
+      <li>
+        <a href="#">
+          <i class="bx bx-line-chart"></i>
+          <span class="link_name">التقارير</span>
+          <i class="bx bx-chevron-down dropdown-icon"></i>
+        </a>
+        <ul class="sub-menu">
+          <li><a href="الموقف المالي.html"><i class="bx bx-bar-chart-alt"></i>الموقف المالي</a></li>
+          <li><a href="حركه صنف.html"><i class="bx bx-layer"></i>حركة صنف</a></li>
+          <li><a href="تقرير مصروفات.html"><i class="bx bx-money"></i>مصروفات يومية</a></li>
+          <li><a href="مبيعات اليوم.html"><i class="bx bx-cart"></i>مبيعات يومية</a></li>
+          <li><a href="عمليات درج .html"><i class="bx bx-wallet"></i>عمليات درج اليوم</a></li>
+          <li><a href="تقرير صافي الربح.html"><i class="bx bx-trending-up"></i>صافى الربح خلال مدة زمنية</a></li>
+
+        </ul>
+        <span class="tooltip">التقارير</span>
+      </li>
+      
+      <!-- الإعدادات -->
+      <li>
+        <a href="الاعدادات.html">
+          <i class="bx bx-cog"></i>
+          <span class="link_name">الإعدادات</span>
+        </a>
+        <span class="tooltip">الإعدادات</span>
+      </li>
+      
+      <!-- التنبيهات -->
+      <li>
+        <a href="التنبيهات.html">
+          <i class="bx bx-bell"></i>
+          <span class="link_name">التنبيهات</span>
+        </a>
+        <span class="tooltip">التنبيهات</span>
+      </li>
+      
+      <li class="profile">
+        <div class="profile_details">
+          <i class="bx bx-user"></i>
+          <div class="profile_content">
+            <div class="name">سامي</div>
+            <div class="designation">مدير</div>
+          </div>
+        </div>
+        <i class="bx bx-log-out" id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+
+
+<section class="add-user-section">
+  <!-- العنوان -->
+  <div class="separator">
+    <h2>إضافة مستخدم جديد</h2>
+  </div>
+
+  <div class="add">
+  <!-- الصف الأول: اسم المستخدم -->
+  <div class="row">
+    <div class="column">
+      <label for="username">اسم المستخدم</label>
+      <input type="text" id="username" placeholder="أدخل اسم المستخدم">
+    </div>
+  </div>
+
+  <!-- الصف الثاني: كلمة المرور وإعادة كلمة المرور -->
+  <div class="row">
+    <div class="column">
+      <label for="password">كلمة المرور</label>
+      <input type="password" id="password" placeholder="أدخل كلمة المرور">
+    </div>
+    <div class="column">
+      <label for="confirm-password">إعادة كلمة المرور</label>
+      <input type="password" id="confirm-password" placeholder="أعد إدخال كلمة المرور">
+    </div>
+
+    <div class="column">
+      <label for="sales-point">نقطة البيع</label>
+      <select id="sales-point">
+          <option value="الكل">الكل</option>
+          <option value="درج النقدية">درج النقدية</option>
+          <option value="درج المعرض">درج المعرض</option>
+          <option value="بنك مصر">بنك مصر</option>
+          <option value="فودافون كاش سمارت مون">فودافون كاش سمارت مون</option>
+          <option value="درج السيارة">درج السيارة</option>
+          <option value="فودافون كاش أبو عبده">فودافون كاش أبو عبده</option>
+      </select>
+  </div>
+
+    <div class="column">
+      <label for="user-role">دور المستخدم</label>
+      <select id="user-role">
+        <option value="مدير">مدير</option>
+        <option value="مستخدم عادي">مستخدم عادي</option>
+      </select>
+    </div>
+  </div>
+
+<!-- الصلاحيات -->
+<div class="permissions">
+  <h3>الصلاحيات</h3>
+  <div class="checkbox-group">
+    <div class="permission-item">
+      <input type="checkbox" id="program-access" value="program-access">
+      <label for="program-access">دخول البرنامج</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="sales-reports" value="sales-reports">
+      <label for="sales-reports">عرض تقارير المبيعات اليوميه</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="inventory-reports" value="inventory-reports">
+      <label for="inventory-reports">عرض تقارير جرد الأصناف</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="record-returns" value="record-returns">
+      <label for="record-returns">تسجيل الموردين</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="financial-reports" value="financial-reports">
+      <label for="financial-reports">عرض التقارير </label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="sales-discounts" value="sales-discounts">
+      <label for="sales-discounts">بيع بخصم</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="sell-on-account" value="sell-on-account">
+      <label for="sell-on-account">بيع بأجل</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="view-clients" value="view-clients">
+      <label for="view-clients">عرض بيانات العملاء</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="view-suppliers" value="view-suppliers">
+      <label for="view-suppliers">عرض بيانات الموردين</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="add-purchases" value="add-purchases">
+      <label for="add-purchases">إضافة مشتريات</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="show-sales-price" value="show-sales-price">
+      <label for="show-sales-price">إظهار سعر البيع</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="view-drawer-balance" value="view-drawer-balance">
+      <label for="view-drawer-balance">إظهار رصيد الدرج</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="add-expense" value="add-expense">
+      <label for="add-expense">إضافة مصروف</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="view-purchases" value="view-purchases">
+      <label for="view-purchases">الاطلاع على المشتريات</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="add-supplier" value="add-supplier">
+      <label for="add-supplier">إضافة مورد</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="add-product" value="add-product">
+      <label for="add-product">إضافة صنف</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="view-products" value="view-products">
+      <label for="view-products">عرض الأصناف</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="view-settings" value="view-settings">
+      <label for="view-settings">ظهور الإعدادات</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="view-cash-registers" value="view-cash-registers">
+      <label for="view-cash-registers">عرض الخزن</label>
+    </div>
+    <div class="permission-item">
+      <input type="checkbox" id="transfer-between-registers" value="transfer-between-registers">
+      <label for="transfer-between-registers">التحويل بين الخزن</label>
+    </div>
+      <!-- زر حفظ المستخدم -->
+  <div class="buttons">
+    <button class="save-user-btn">حفظ المستخدم</button>
+  </div>
+  </div>
+</div>
+
+</div>
+
+  <!-- جدول المستخدمين -->
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>اسم المستخدم</th>
+        <th>دور المستخدم</th>
+        <th>نقطة البيع</th>
+        <th>تعديل</th>
+        <th>حذف</th>
+      </tr>
+    </thead>
+    <tbody id="user-body">
+      <!-- ستضاف الصفوف ديناميكيًا هنا -->
+    </tbody>
+  </table>
+  <div class="buttons">
+    <button class="add-user-btn">اضافه المستخدم</button>
+  </div>
+</section>
+
+  <!-- السكريبتات -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/الاعدادات.js"></script>
+</body>
+</html>

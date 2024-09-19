@@ -7,7 +7,7 @@
   <!-- رابط الأنماط -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/عمليه بيع جديده.css">
-  <link rel="stylesheet" href="css/ايصال.css">
+  <link rel="stylesheet" href="css/الموقف المالي.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -142,80 +142,142 @@
       </li>
     </ul>
   </div>
-    <section class="receipt-section">
-        <div class="separator">
-            <h2>إيصال استلام من مورد</h2>
-        </div>
+
+    <section class="financial-status">
+      <div class="separator">
+        <h2>الموقف المالي</h2>
+      </div>
     
-        <!-- الصف الأول: تسجيل المورد -->
-        <div class="row">
-            <div class="column">
-                <label for="client-name">المورد</label>
-                <div class="custom-select">
-                    <input type="text" id="client-name" placeholder="اختر المورد" autocomplete="off">
-                    <div class="options-list" id="client-name-options">
-                        <div class="option" data-value="مورد 1" data-balance="5750">مورد 1</div>
-                        <div class="option" data-value="مورد 2" data-balance="3500">مورد 2</div>
-                        <div class="option" data-value="مورد 3" data-balance="4200">مورد 3</div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="column">
-                <label for="payment-amount">المبلغ</label>
-                <input type="number" id="payment-amount" placeholder="أدخل المبلغ">
-            </div>
-    
-            <div class="column">
-                <label for="cash-register">الخزنة</label>
-                <div class="custom-select">
-                    <input type="text" id="cash-register" placeholder="اختر الخزنة" autocomplete="off">
-                    <button class="add-expense-btn"><i class='bx bx-plus'></i></button>
-                    <div class="options-list" id="cash-register-options">
-                        <div class="option" data-value="الخزنة 1">الخزنة 1</div>
-                        <div class="option" data-value="الخزنة 2">الخزنة 2</div>
-                        <div class="option" data-value="الخزنة 3">الخزنة 3</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- الرصيد السابق -->
-        <div class="previous-balance">
-            <p>الرصيد السابق: <span id="previous-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- جدول استلام المورد -->
-        <table class="receipt-table">
+      <!-- Container for the first three tables -->
+      <div class="financial-container">
+        <!-- Part 1: لنا -->
+        <div class="financial-part">
+          <h3>لنا</h3>
+          <table>
             <thead>
-                <tr>
-                    <th>المورد</th>
-                    <th>المبلغ</th>
-                    <th>تعديل</th>
-                    <th>حذف</th>
-                </tr>
+              <tr>
+                <th>الحساب</th>
+                <th>القيمة</th>
+                <th>التفاصيل</th> <!-- عمود التفاصيل -->
+              </tr>
             </thead>
-            <tbody id="receipt-body">
+            <tbody>
+              <tr>
+                <td>علي العملاء</td>
+                <td>123,456.00 جنيه</td>
+                <td><a href="عرض العملاء.html"><i class='bx bx-show'></i></a></td> <!-- رابط للتفاصيل -->
+              </tr>
+              <tr>
+                <td>علي الموردين</td>
+                <td>789,012.00 جنيه</td>
+                <td><a href="عرض موردين.html"><i class='bx bx-show'></i></a></td> <!-- رابط للتفاصيل -->
+              </tr>
+              <tr class="total-row">
+                <td>الإجمالي</td>
+                <td colspan="2"></td> <!-- فارغ في الإجمالي -->
+              </tr>
             </tbody>
+          </table>
+        </div>
+    
+        <!-- Part 2: علينا -->
+        <div class="financial-part">
+          <h3>علينا</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>الحساب</th>
+                <th>القيمة</th>
+                <th>التفاصيل</th> <!-- عمود التفاصيل -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>للعملاء</td>
+                <td>654,321.00 جنيه</td>
+                <td><a href="عرض العملاء.html"><i class='bx bx-show'></i></a></td> <!-- رابط للتفاصيل -->
+              </tr>
+              <tr>
+                <td>للموردين</td>
+                <td>321,987.00 جنيه</td>
+                <td><a href="عرض موردين.html"><i class='bx bx-show'></i></a></td> <!-- رابط للتفاصيل -->
+              </tr>
+              <tr class="total-row">
+                <td>الإجمالي</td>
+                <td colspan="2"></td> <!-- فارغ في الإجمالي -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+        <!-- Part 3: الفعلي -->
+        <div class="financial-part">
+          <h3>الفعلي</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>البند</th>
+                <th>القيمة</th>
+                <th>التفاصيل</th> <!-- عمود التفاصيل -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ارصده المخزن</td>
+                <td>543,210.00 جنيه</td>
+                <td><a href="عرض الاصناف.html"><i class='bx bx-show'></i></a></td> <!-- رابط للتفاصيل -->
+              </tr>
+              <tr>
+                <td>ارصده الخزن</td>
+                <td>123,456.00 جنيه</td>
+                <td><a href="#"><i class='bx bx-show'></i></a></td> <!-- رابط للتفاصيل -->
+              </tr>
+              <tr class="total-row">
+                <td>الإجمالي</td>
+                <td colspan="2"></td> <!-- فارغ في الإجمالي -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      <!-- Part 4: الموقف المالي -->
+      <div class="financial-summary">
+        <h3>اجمالي الموقف المالي</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>البند</th>
+              <th>القيمة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>اجمالي الفعلي</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>اجمالي لنا</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>اجمالي علينا</td>
+              <td></td>
+            </tr>
+            <tr class="total-row">
+              <td>الاجمالي</td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
-    
-        <!-- الرصيد الجديد -->
-        <div class="new-balance">
-            <p>الرصيد الجديد: <span id="new-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- زرار الحفظ -->
-        <div class="buttons">
-            <button class="save-receipt-btn">حفظ السجل</button>
-        </div>
+      </div>
     </section>
     
-      
-    
-    
+   
+
   <!-- السكريبتات -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/ايصال.js"></script>
+  <script src="js/الموقف المالي.js"></script>
 </body>
 </html>

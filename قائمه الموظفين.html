@@ -7,7 +7,7 @@
   <!-- رابط الأنماط -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/عمليه بيع جديده.css">
-  <link rel="stylesheet" href="css/ايصال.css">
+  <link rel="stylesheet" href="css/الموظفين.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -141,81 +141,84 @@
         <i class="bx bx-log-out" id="log_out"></i>
       </li>
     </ul>
-  </div>
-    <section class="receipt-section">
+  </div>ر
+    <section class="employee-section">
+
         <div class="separator">
-            <h2>إيصال استلام من مورد</h2>
+          <h2>قائمة الموظفين</h2>
         </div>
-    
-        <!-- الصف الأول: تسجيل المورد -->
-        <div class="row">
-            <div class="column">
-                <label for="client-name">المورد</label>
-                <div class="custom-select">
-                    <input type="text" id="client-name" placeholder="اختر المورد" autocomplete="off">
-                    <div class="options-list" id="client-name-options">
-                        <div class="option" data-value="مورد 1" data-balance="5750">مورد 1</div>
-                        <div class="option" data-value="مورد 2" data-balance="3500">مورد 2</div>
-                        <div class="option" data-value="مورد 3" data-balance="4200">مورد 3</div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="column">
-                <label for="payment-amount">المبلغ</label>
-                <input type="number" id="payment-amount" placeholder="أدخل المبلغ">
-            </div>
-    
-            <div class="column">
-                <label for="cash-register">الخزنة</label>
-                <div class="custom-select">
-                    <input type="text" id="cash-register" placeholder="اختر الخزنة" autocomplete="off">
-                    <button class="add-expense-btn"><i class='bx bx-plus'></i></button>
-                    <div class="options-list" id="cash-register-options">
-                        <div class="option" data-value="الخزنة 1">الخزنة 1</div>
-                        <div class="option" data-value="الخزنة 2">الخزنة 2</div>
-                        <div class="option" data-value="الخزنة 3">الخزنة 3</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- الرصيد السابق -->
-        <div class="previous-balance">
-            <p>الرصيد السابق: <span id="previous-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- جدول استلام المورد -->
-        <table class="receipt-table">
-            <thead>
-                <tr>
-                    <th>المورد</th>
-                    <th>المبلغ</th>
-                    <th>تعديل</th>
-                    <th>حذف</th>
-                </tr>
-            </thead>
-            <tbody id="receipt-body">
-            </tbody>
-        </table>
-    
-        <!-- الرصيد الجديد -->
-        <div class="new-balance">
-            <p>الرصيد الجديد: <span id="new-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- زرار الحفظ -->
-        <div class="buttons">
-            <button class="save-receipt-btn">حفظ السجل</button>
-        </div>
-    </section>
-    
       
-    
-    
+
+        <div class="row">
+          <div class="column flex-input-btn">
+            <label for="employee-name">اسم الموظف</label>
+            <div class="input-group">
+              <input type="text" id="employee-name" placeholder="أدخل اسم الموظف">
+            </div>
+          </div>
+        </div>
+      
+        <!-- الصف الثاني: تسجيل رقم التليفون، الوظيفة، والراتب -->
+        <div class="row">
+          <div class="column">
+            <label for="employee-phone">رقم التليفون</label>
+            <input type="tel" id="employee-phone" placeholder="أدخل رقم التليفون">
+          </div>
+      
+          <div class="column">
+            <label for="employee-role">الوظيفة</label>
+            <div class="custom-select">
+              <input type="text" id="employee-role" placeholder="اختر الوظيفة" autocomplete="off">
+              <div class="options-list" id="employee-role-options">
+                <div class="option" data-value="مدير">مدير</div>
+                <div class="option" data-value="سائق">سائق</div>
+                <div class="option" data-value="مندوب">مندوب</div>
+                <div class="option" data-value="محاسب">محاسب</div>
+                <div class="option" data-value="أمين مخزن">أمين مخزن</div>
+                <div class="option" data-value="مبيعات">مبيعات</div>
+                <div class="option" data-value="صفحه">صفحه</div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="column">
+            <label for="employee-salary">الراتب</label>
+            <div class="input-group">
+              <input type="number" id="employee-salary" placeholder="أدخل الراتب">
+              <button class="add-employee-btn"><i class='bx bx-plus'></i></button>
+            </div>
+          </div>
+        </div>
+      
+        <!-- جدول الموظفين -->
+        <table class="employee-table">
+          <thead>
+            <tr>
+              <th>اسم الموظف</th>
+              <th>الوظيفة</th>
+              <th>رقم التليفون</th>
+              <th>الراتب</th>
+              <th>تعديل</th>
+              <th>حذف</th>
+            </tr>
+          </thead>
+          <tbody id="employee-body">
+          </tbody>
+        </table>
+      
+        <!-- إجمالي الرواتب -->
+        <div class="total">
+          <p id="employee-total-text">إجمالي الرواتب: <span id="employee-total-amount-text">0</span> جنيه</p>
+        </div>
+      
+        <!-- زر الحفظ -->
+        <div class="buttons">
+          <button class="save-employee-btn">حفظ السجل</button>
+        </div>    
+      </section>
   <!-- السكريبتات -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/ايصال.js"></script>
+  <script src="js/الموظفين.js"></script>
 </body>
 </html>

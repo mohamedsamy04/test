@@ -7,7 +7,7 @@
   <!-- رابط الأنماط -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/عمليه بيع جديده.css">
-  <link rel="stylesheet" href="css/ايصال.css">
+  <link rel="stylesheet" href="css/الموظفين.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -142,80 +142,104 @@
       </li>
     </ul>
   </div>
-    <section class="receipt-section">
+    <section class="salary-section">
         <div class="separator">
-            <h2>إيصال استلام من مورد</h2>
+          <h2>صرف رواتب الموظفين</h2>
         </div>
-    
-        <!-- الصف الأول: تسجيل المورد -->
+      
+        <!-- الصف الأول: تحديد التاريخ -->
         <div class="row">
-            <div class="column">
-                <label for="client-name">المورد</label>
-                <div class="custom-select">
-                    <input type="text" id="client-name" placeholder="اختر المورد" autocomplete="off">
-                    <div class="options-list" id="client-name-options">
-                        <div class="option" data-value="مورد 1" data-balance="5750">مورد 1</div>
-                        <div class="option" data-value="مورد 2" data-balance="3500">مورد 2</div>
-                        <div class="option" data-value="مورد 3" data-balance="4200">مورد 3</div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="column">
-                <label for="payment-amount">المبلغ</label>
-                <input type="number" id="payment-amount" placeholder="أدخل المبلغ">
-            </div>
-    
+          <div class="column">
+            <label for="day-select">اليوم</label>
+            <select id="day-select">
+              <!-- خيارات الأيام من 1 إلى 31 -->
+              <option value="">اختر اليوم</option>
+              <!-- يمكن إضافة بقية الأيام هنا -->
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+      
+          <div class="column">
+            <label for="month-select">الشهر</label>
+            <select id="month-select">
+              <option value="1">يناير</option>
+              <option value="2">فبراير</option>
+              <option value="3">مارس</option>
+              <option value="4">أبريل</option>
+              <option value="5">مايو</option>
+              <option value="6">يونيو</option>
+              <option value="7">يوليو</option>
+              <option value="8">أغسطس</option>
+              <option value="9">سبتمبر</option>
+              <option value="10">أكتوبر</option>
+              <option value="11">نوفمبر</option>
+              <option value="12">ديسمبر</option>
+            </select>
+          </div>
+      
+          <div class="column">
+            <label for="year-select">السنة</label>
+            <select id="year-select">
+              <option value="">اختر السنة</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <!-- بقية السنوات -->
+            </select>
+          </div>
+        </div>
+      
+        <!-- الصف الثاني: اختيار الخزنة وزر التأكيد -->
+        <div class="row">
             <div class="column">
                 <label for="cash-register">الخزنة</label>
                 <div class="custom-select">
-                    <input type="text" id="cash-register" placeholder="اختر الخزنة" autocomplete="off">
-                    <button class="add-expense-btn"><i class='bx bx-plus'></i></button>
-                    <div class="options-list" id="cash-register-options">
-                        <div class="option" data-value="الخزنة 1">الخزنة 1</div>
-                        <div class="option" data-value="الخزنة 2">الخزنة 2</div>
-                        <div class="option" data-value="الخزنة 3">الخزنة 3</div>
-                    </div>
+                  <input type="text" id="cash-register" placeholder="اختر الخزنة" autocomplete="off">
+                  <button class="confirm-salary-btn">تأكيد</button>
+                  <div class="options-list" id="cash-register-options">
+                    <div class="option" data-value="الخزنة 1">الخزنة 1</div>
+                    <div class="option" data-value="الخزنة 2">الخزنة 2</div>
+                    <div class="option" data-value="الخزنة 3">الخزنة 3</div>
+                    <div class="option" data-value="الخزنة 4">الخزنة 4</div>
+                  </div>
                 </div>
+              </div>
             </div>
         </div>
-    
-        <!-- الرصيد السابق -->
-        <div class="previous-balance">
-            <p>الرصيد السابق: <span id="previous-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- جدول استلام المورد -->
-        <table class="receipt-table">
-            <thead>
-                <tr>
-                    <th>المورد</th>
-                    <th>المبلغ</th>
-                    <th>تعديل</th>
-                    <th>حذف</th>
-                </tr>
-            </thead>
-            <tbody id="receipt-body">
-            </tbody>
+      
+        <!-- جدول صرف رواتب الموظفين -->
+        <table class="salary-table">
+          <thead>
+            <tr>
+              <th>اسم الموظف</th>
+              <th>الوظيفة</th>
+              <th>الراتب</th>
+              <th>حافز</th>
+              <th>خصم</th>
+              <th>سلفة شهرية</th>
+              <th>صافي المرتب</th>
+            </tr>
+          </thead>
+          <tbody id="salary-body">
+            <!-- سيتم إدخال البيانات هنا باستخدام JavaScript -->
+          </tbody>
         </table>
-    
-        <!-- الرصيد الجديد -->
-        <div class="new-balance">
-            <p>الرصيد الجديد: <span id="new-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- زرار الحفظ -->
+      
+        <!-- زر الحفظ -->
         <div class="buttons">
-            <button class="save-receipt-btn">حفظ السجل</button>
+          <button class="save-salary-btn">حفظ</button>
         </div>
-    </section>
-    
+      </section>
+      
+      
       
     
     
   <!-- السكريبتات -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/ايصال.js"></script>
+  <script src="js/الموظفين.js"></script>
 </body>
 </html>

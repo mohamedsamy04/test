@@ -130,4 +130,7 @@ $(document).ready(function() {
     }
 
     updateTable();
+    $(".bx-show-alt").click(function(){
+        window.location.href = "كشف حساب.html";
+      });  
 });

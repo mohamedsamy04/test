@@ -263,7 +263,7 @@ $(window).on('load', function() {
       window.location.href = "عرض الاصناف.html";
     });       
     $("#card8").click(function(){
-      window.location.href = "عرض موردين.html";
+      window.location.href = "تحويل بين الخزن.html";
     });       
     $("#card9").click(function(){
       window.location.href = "سجـل مصــــروف.html";
@@ -271,7 +271,13 @@ $(window).on('load', function() {
     $("#card10").click(function(){
       window.location.href = "تحويل بين المخازن .html";
     });       
+    $(".uniqe").click(function(){
+      window.location.href = "درج.html";
+    });       
     $("#add-item").click(function(){
       window.location.href = "عرض الاصناف.html";
+    });       
+    $("#log_out").click(function(){
+      window.location.href = "index.html";
     });       
   });

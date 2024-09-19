@@ -7,8 +7,8 @@
   <!-- رابط الأنماط -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/عمليه بيع جديده.css">
-  <link rel="stylesheet" href="css/ايصال.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/عمليات الدرج.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -142,80 +142,39 @@
       </li>
     </ul>
   </div>
-    <section class="receipt-section">
+
+    <section class="drawer-operations-report">
         <div class="separator">
-            <h2>إيصال استلام من مورد</h2>
+            <h2>تقرير الدرج</h2>
         </div>
     
-        <!-- الصف الأول: تسجيل المورد -->
-        <div class="row">
-            <div class="column">
-                <label for="client-name">المورد</label>
-                <div class="custom-select">
-                    <input type="text" id="client-name" placeholder="اختر المورد" autocomplete="off">
-                    <div class="options-list" id="client-name-options">
-                        <div class="option" data-value="مورد 1" data-balance="5750">مورد 1</div>
-                        <div class="option" data-value="مورد 2" data-balance="3500">مورد 2</div>
-                        <div class="option" data-value="مورد 3" data-balance="4200">مورد 3</div>
-                    </div>
-                </div>
-            </div>
+        <!-- اختيار التواريخ ونقطة البيع -->
+        <div class="total">
+            <p id="total-text">اجمالي الدرج: <span id="total-amount-text">0</span> جنيه</p>
+          </div>
     
-            <div class="column">
-                <label for="payment-amount">المبلغ</label>
-                <input type="number" id="payment-amount" placeholder="أدخل المبلغ">
-            </div>
-    
-            <div class="column">
-                <label for="cash-register">الخزنة</label>
-                <div class="custom-select">
-                    <input type="text" id="cash-register" placeholder="اختر الخزنة" autocomplete="off">
-                    <button class="add-expense-btn"><i class='bx bx-plus'></i></button>
-                    <div class="options-list" id="cash-register-options">
-                        <div class="option" data-value="الخزنة 1">الخزنة 1</div>
-                        <div class="option" data-value="الخزنة 2">الخزنة 2</div>
-                        <div class="option" data-value="الخزنة 3">الخزنة 3</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- الرصيد السابق -->
-        <div class="previous-balance">
-            <p>الرصيد السابق: <span id="previous-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- جدول استلام المورد -->
-        <table class="receipt-table">
+        <!-- جدول العمليات -->
+        <table class="operations-table">
             <thead>
                 <tr>
-                    <th>المورد</th>
-                    <th>المبلغ</th>
-                    <th>تعديل</th>
-                    <th>حذف</th>
+                    <th>الوقت</th>
+                    <th>تاريخ العملية</th>
+                    <th>الإيراد</th>
+                    <th>المصروف</th>
+                    <th>الرصيد المتبقى</th>
+                    <th>البيان</th>
+                    <th>المستخدم</th>
                 </tr>
             </thead>
-            <tbody id="receipt-body">
+            <tbody id="operations-table-body">
             </tbody>
         </table>
-    
-        <!-- الرصيد الجديد -->
-        <div class="new-balance">
-            <p>الرصيد الجديد: <span id="new-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- زرار الحفظ -->
-        <div class="buttons">
-            <button class="save-receipt-btn">حفظ السجل</button>
-        </div>
     </section>
-    
-      
     
     
   <!-- السكريبتات -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/ايصال.js"></script>
+  <script src="js/صنف.js"></script>
 </body>
 </html>
