@@ -7,8 +7,8 @@
   <!-- رابط الأنماط -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/عمليه بيع جديده.css">
-  <link rel="stylesheet" href="css/ايصال.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/الاصناف.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -147,80 +147,120 @@
       </li>
     </ul>
   </div>
-    <section class="receipt-section">
+
+    <section class="customer-display-section">
+        <!-- العنوان -->
         <div class="separator">
-            <h2>إيصال استلام من عميل</h2>
+          <h2>الأقساط المتأخرة</h2>
         </div>
     
-        <!-- الصف الأول: تسجيل العميل -->
+        <!-- البحث والفلاتر -->
         <div class="row">
-            <div class="column">
-                <label for="client-name">العميل</label>
-                <div class="custom-select">
-                    <input type="text" id="client-name" placeholder="اختر العميل" autocomplete="off">
-                    <div class="options-list" id="client-name-options">
-                        <div class="option" data-value="عميل 1" data-balance="5750">عميل 1</div>
-                        <div class="option" data-value="عميل 2" data-balance="3500">عميل 2</div>
-                        <div class="option" data-value="عميل 3" data-balance="4200">عميل 3</div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="column">
-                <label for="payment-amount">المبلغ</label>
-                <input type="number" id="payment-amount" placeholder="أدخل المبلغ">
-            </div>
-    
-            <div class="column">
-                <label for="cash-register">الخزنة</label>
-                <div class="custom-select">
-                    <input type="text" id="cash-register" placeholder="اختر الخزنة" autocomplete="off">
-                    <button class="add-expense-btn"><i class='bx bx-plus'></i></button>
-                    <div class="options-list" id="cash-register-options">
-                        <div class="option" data-value="الخزنة 1">الخزنة 1</div>
-                        <div class="option" data-value="الخزنة 2">الخزنة 2</div>
-                        <div class="option" data-value="الخزنة 3">الخزنة 3</div>
-                    </div>
-                </div>
-            </div>
+          <div class="column">
+            <label for="search-customer">بحث عن عميل</label>
+            <input type="text" id="search-customer" placeholder="ابحث عن عميل">
+          </div>
+          <div class="column">
+            <label for="filter-balance">ترتيب العملاء</label>
+            <select id="filter-balance" class="filter-select">
+              <option value="">جميع العملاء</option>
+              <option value="credit">من الاحدث</option>
+              <option value="debt">من الاقدم</option>
+            </select>
+          </div>          
         </div>
     
-        <!-- الرصيد السابق -->
-        <div class="previous-balance">
-            <p>الرصيد السابق: <span id="previous-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- جدول استلام العميل -->
-        <table class="receipt-table">
-            <thead>
-                <tr>
-                    <th>العميل</th>
-                    <th>المبلغ</th>
-                    <th>تعديل</th>
-                    <th>حذف</th>
-                </tr>
-            </thead>
-            <tbody id="receipt-body">
-            </tbody>
+        <!-- جدول العملاء -->
+        <table class="customers-table">
+          <thead>
+            <tr>
+              <th>اسم العميل</th>
+              <th>رقم الهاتف</th>
+              <th>له مبلغ</th>
+              <th>ايام التاخير</th>
+              <th>كشف حساب</th>
+            </tr>
+          </thead>
+          <tbody id="customers-table-body">
+            <tr>
+                <td>عميل 1</td>
+                <td>0123456789</td>
+                <td>500</td>
+                <td>10</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <tr>
+                <td>عميل 2</td>
+                <td>0987654321</td>
+                <td>1000</td>
+                <td>30</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <tr>
+                <td>عميل 3</td>
+                <td>01009334092</td>
+                <td>600</td>
+                <td>21</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <tr>
+                <td>عميل 4</td>
+                <td>01000342166</td>
+                <td>1000</td>
+                <td>43</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <tr>
+                <td>عميل 5</td>
+                <td>01000342166</td>
+                <td>1000</td>
+                <td>34</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <tr>
+                <td>عميل 6</td>
+                <td>01000342166</td>
+                <td>1000</td>
+                <td>14</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <tr>
+                <td>عميل 7</td>
+                <td>01000342166</td>
+                <td>1000</td>
+                <td>16</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <tr>
+                <td>عميل 8</td>
+                <td>01000342166</td>
+                <td>1000</td>
+                <td>14</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <tr>
+                <td>عميل 9</td>
+                <td>01000342166</td>
+                <td>1000</td>
+                <td>17</td>
+                <td><i class='bx bx-show-alt show-btn'></i></td>
+            </tr>
+            <!-- إضافة المزيد من الصفوف حسب الحاجة -->
+          </tbody>
         </table>
     
-        <!-- الرصيد الجديد -->
-        <div class="new-balance">
-            <p>الرصيد الجديد: <span id="new-balance-amount">0</span> جنيه</p>
-        </div>
-    
-        <!-- زرار الحفظ -->
-        <div class="buttons">
-            <button class="save-receipt-btn">حفظ السجل</button>
+        <!-- التحكم في تقسيم الصفحات -->
+        <div class="pagination">
+          <button id="prev-page" disabled>السابق</button>
+          <span>صفحة <span id="current-page">1</span> من <span id="total-pages">1</span></span>
+          <button id="next-page">التالي</button>
         </div>
     </section>
-    
-      
     
     
   <!-- السكريبتات -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/ايصال.js"></script>
+  <script src="js/عرض عميل.js"></script>
 </body>
 </html>

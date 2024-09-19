@@ -25,27 +25,28 @@ $(document).ready(function() {
     function filterTable() {
         let searchValue = $('#search-customer').val().toLowerCase();
         let balanceFilter = $('#filter-balance').val();
-
+    
         filteredCustomers = allCustomers.filter(function(customer) {
             let customerName = $(customer).find('td').eq(0).text().toLowerCase();
-            let customerCredit = parseFloat($(customer).find('td').eq(2).text());
-            let customerDebt = parseFloat($(customer).find('td').eq(3).text());
-
             let matchesSearch = customerName.includes(searchValue);
-
-            let matchesBalance = true;
-            if (balanceFilter === "credit") {
-                matchesBalance = customerCredit > 0;
-            } else if (balanceFilter === "debt") {
-                matchesBalance = customerDebt > 0;
-            }
-
-            return matchesSearch && matchesBalance;
+            return matchesSearch; // نبحث فقط عن المطابقة بالاسم
         });
-
+    
+        // ترتيب العملاء بناءً على اختيار الفلتر
+        if (balanceFilter === "credit") {
+            filteredCustomers.sort(function(a, b) {
+                return parseInt($(a).find('td').eq(3).text()) - parseInt($(b).find('td').eq(3).text()); // من الأقدم
+            });
+        } else if (balanceFilter === "debt") {
+            filteredCustomers.sort(function(a, b) {
+                return parseInt($(b).find('td').eq(3).text()) - parseInt($(a).find('td').eq(3).text()); // من الأحدث
+            });
+        }
+    
         currentPage = 1;
         updateTable(); 
     }
+    
 
     $('#search-customer').on('input', filterTable);
     $('#filter-balance').on('change', filterTable);

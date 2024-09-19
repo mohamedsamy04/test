@@ -155,7 +155,6 @@ $(document).ready(function () {
                 const item = $(this).find('td:first-child').text();
                 const qty = $(this).find('.transfer-qty').val();
                 
-                // إذا كانت الكمية قد تم إدخالها، لا تخفي هذا العنصر
                 if (qty && parseInt(qty) > 0) {
                     $(this).show(); 
                 } else if (item.includes(searchValue)) {
