@@ -859,3 +859,104 @@ button:hover {
         font-size: 12px;
       }
     }
+
+    .invoice-container{
+      display: none;
+    }
+
+    @media print {
+      body {
+        font-family: 'Cairo', sans-serif;
+        direction: rtl;
+        text-align: right;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+      .sidebar, .invoice-section {
+          display: none; 
+      }
+      p {
+            font-weight: bold;
+        }
+
+        .invoice-container {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            text-align: right;
+            width: 100%;
+            margin:0 auto;
+            padding: 20px;
+            background-color: #fff;
+            display: block;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 120px;
+        }
+
+        .details p {
+            margin: 2px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .invoice-table th,
+        .invoice-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .invoice-table th {
+            background-color: #f8f8f8;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .totals {
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        .totals th, 
+        .totals td {
+            padding: 10px 20px;
+            text-align: left;
+            background-color: #ededed; 
+        }
+
+        .totals th {
+            font-weight: bold;
+        }
+
+        .totals td {
+            text-align: right;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+        }
+
+        .footer p {
+            width: 60%;
+            margin: 0 auto;
+        }
+  }
