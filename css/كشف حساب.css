@@ -78,7 +78,6 @@
         padding: 8px;
     }
 
-    /* تحسين عرض الجداول الصغيرة */
     .table-responsive {
         overflow-x: auto;
     }

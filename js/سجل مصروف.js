@@ -64,7 +64,6 @@ $('.save-item-btn').click(function() {
         $('#cash-register-options').show();
     });
 
-    // إضافة المصروف
     $('.add-expense-btn').click(function() {
         var amount = $('#expense-amount').val();
         var category = $('#expense-category').val();
@@ -72,11 +71,9 @@ $('.save-item-btn').click(function() {
 
         if (amount.trim() !== '' && category.trim() !== '' && cashRegister.trim() !== '') {
             if (!editMode) {
-                // إضافة صف جديد
                 var newRow = '<tr><td>' + category + '</td><td>' + amount + '</td><td>' + cashRegister + '</td><td><i class="bx bxs-edit edit-row-btn"></i></td><td><i class="bx bxs-trash delete-row-btn"></i></td></tr>';
                 $('#expense-body').append(newRow);
             } else {
-                // تعديل الصف الحالي
                 $(currentRow).find('td:nth-child(1)').text(category);
                 $(currentRow).find('td:nth-child(2)').text(amount);
                 $(currentRow).find('td:nth-child(3)').text(cashRegister);
@@ -85,8 +82,6 @@ $('.save-item-btn').click(function() {
             }
 
             updateTotal();
-
-            // مسح الحقول
             $('#expense-amount').val('');
             $('#expense-category').val('');
             $('#cash-register').val('');

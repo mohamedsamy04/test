@@ -18,14 +18,12 @@ $(document).ready(function() {
         }
       });
     }
-  
-    // الضغط على زر إضافة مستخدم
+
     $('.add-user-btn').on('click', function() {
       $('.add').slideDown();
       $('html, body').animate({ scrollTop: $('.add').offset().top }, 500);
     });
   
-    // التحقق من المدخلات وحفظ المستخدم
     function saveUserData() {
       const username = $('#username').val().trim();
       const password = $('#password').val().trim();
@@ -37,7 +35,6 @@ $(document).ready(function() {
         permissions.push($(this).val());
       });
   
-      // التحقق من المدخلات
       if (!username || !password || password !== confirmPassword || permissions.length === 0) {
         showAlert('يرجى التحقق من البيانات المدخلة.', 'error');
         return;
@@ -45,20 +42,17 @@ $(document).ready(function() {
   
       const userData = { username, password, salesPoint, userRole, permissions };
       const userKey = username;
-  
-      // تخزين البيانات في Local Storage
+
       localStorage.setItem(userKey, JSON.stringify(userData));
   
       const row = $('.edit-user-btn').data('row');
       if (row) {
-        // تعديل المستخدم
         row.find('td:eq(0)').text(username);
         row.find('td:eq(1)').text(userRole);
         row.find('td:eq(2)').text(salesPoint);
   
         showAlert('تم تعديل بيانات المستخدم بنجاح.');
       } else {
-        // إضافة مستخدم جديد
         $('#user-body').append(`
           <tr>
             <td>${username}</td>

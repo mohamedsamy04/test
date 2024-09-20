@@ -216,10 +216,8 @@
   .checkbox-group {
     grid-template-columns: 1fr;
   }
-}
-.permissions {
+}.permissions {
   margin-top: 30px;
-  padding: 20px;
 }
 
 .permissions h3 {
@@ -240,7 +238,7 @@
 .permission-item {
   display: flex;
   align-items: center;
-  padding: 12px 15px;
+  padding: 8px 10px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -257,19 +255,20 @@
 
 .permission-item label {
   position: relative;
-  padding-left: 35px;
+  padding-right: 41px;
   font-size: 16px;
   color: #333;
   cursor: pointer;
   user-select: none;
   display: flex;
   align-items: center;
+  flex-direction: row-reverse;
 }
 
 .permission-item label::before {
   content: '';
   position: absolute;
-  left: 0;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -288,7 +287,7 @@
 .permission-item label::after {
   content: '✔';
   position: absolute;
-  left: 5px;
+  right: 5px;
   top: 50%;
   transform: translateY(-50%) scale(0);
   color: #fff;

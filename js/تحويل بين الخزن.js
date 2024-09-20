@@ -1,11 +1,8 @@
 $(document).ready(function() {
-    var editingVault = null; // لتتبع الخزنة التي نحررها
+    var editingVault = null; 
 
-    // إضافة خزنة جديدة
     $('.save-vault-btn').on('click', function() {
         var vaultName = $('#new-vault').val().trim();
-
-        // التحقق من أن اسم الخزنة لا يقل عن 10 حروف
         if (vaultName.length < 10) {
             Swal.fire({
                 text: 'يجب أن يكون اسم الخزنة 10 حروف على الأقل.',
@@ -26,7 +23,6 @@ $(document).ready(function() {
         }
 
         if (editingVault) {
-            // تعديل الخزنة الحالية
             editingVault.find('td:first').text(vaultName);
             Swal.fire({
                 text: 'تم تعديل اسم الخزنة بنجاح.',
@@ -45,7 +41,6 @@ $(document).ready(function() {
             });
             editingVault = null;
         } else {
-            // إضافة خزنة جديدة
             if ($('#from-vault option[value="' + vaultName + '"]').length === 0) {
                 $('#from-vault, #to-vault').append('<option value="' + vaultName + '">' + vaultName + '</option>');
                 $('#vault-transfer-body').append('<tr><td>' + vaultName + '</td><td>0</td><td><input type="number" class="transfer-amount" placeholder="أدخل مبلغ التحويل"></td><td><i class="bx bxs-edit edit-btn"></i></td><td><i class="bx bxs-trash delete-btn"></i></td></tr>');
@@ -82,12 +77,9 @@ $(document).ready(function() {
                 });
             }
         }
-
-        // مسح الحقل بعد إضافة أو تعديل الخزنة
         $('#new-vault').val('');
     });
 
-    // تعديل اسم الخزنة
     $(document).on('click', '.edit-btn', function() {
         editingVault = $(this).closest('tr');
         var currentVaultName = editingVault.find('td:first').text();
@@ -113,8 +105,7 @@ $(document).ready(function() {
         var vaultRow = $(this).closest('tr');
         var vaultName = vaultRow.find('td:first').text();
         var vaultAmount = parseFloat(vaultRow.find('td:eq(1)').text());
-    
-        // التحقق إذا كان المبلغ أكبر من 0
+
         if (vaultAmount > 0) {
             Swal.fire({
                 text: 'لا يمكن حذف الخزنة إلا إذا كانت فارغة. يرجى تحويل الأموال أولاً.',
@@ -164,28 +155,20 @@ $(document).ready(function() {
         }
     });
     
-
-    // عرض الخزنة المختارة فقط عند التحويل
     $('#from-vault').on('change', function() {
         var selectedVault = $(this).val();
 
         if (selectedVault) {
-            // إخفاء جميع الصفوف
             $('#vault-transfer-body tr').hide();
-
-            // إظهار الصف الخاص بالخزنة المختارة فقط
             $('#vault-transfer-body tr').each(function() {
                 if ($(this).find('td:first').text() === selectedVault) {
                     $(this).show();
                 }
             });
         } else {
-            // إظهار جميع الصفوف إذا لم يتم اختيار خزنة
             $('#vault-transfer-body tr').show();
         }
     });
-
-    // إتمام عملية التحويل
     $('.save-transfer-btn').on('click', function() {
         var fromVault = $('#from-vault').val();
         var toVault = $('#to-vault').val();
@@ -277,8 +260,6 @@ $(document).ready(function() {
             });
             return;
         }
-
-        // تحديث المبالغ بعد التحويل
         fromVaultRow.find('td:eq(1)').text(fromCurrentAmount - transferAmount);
         toVaultRow.find('td:eq(1)').text(toCurrentAmount + transferAmount);
 

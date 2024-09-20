@@ -162,54 +162,63 @@
             </div>
           </div>
         </div>
+
+<!-- الصف الثاني: تسجيل رقم التليفون، الوظيفة، والراتب والنسبة -->
+<div class="row">
+  <div class="column">
+    <label for="employee-phone">رقم التليفون</label>
+    <input type="tel" id="employee-phone" placeholder="أدخل رقم التليفون">
+  </div>
+
+  <div class="column">
+    <label for="employee-role">الوظيفة</label>
+    <div class="custom-select">
+      <input type="text" id="employee-role" placeholder="اختر الوظيفة" autocomplete="off">
+      <div class="options-list" id="employee-role-options">
+        <div class="option" data-value="مدير">مدير</div>
+        <div class="option" data-value="سائق">سائق</div>
+        <div class="option" data-value="مندوب">مندوب</div>
+        <div class="option" data-value="محاسب">محاسب</div>
+        <div class="option" data-value="أمين مخزن">أمين مخزن</div>
+        <div class="option" data-value="مبيعات">مبيعات</div>
+        <div class="option" data-value="صفحه">صفحه</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <label for="employee-salary">الراتب</label>
+    <div class="input-group">
+      <input type="number" id="employee-salary" placeholder="أدخل الراتب">
+    </div>
+  </div>
+
+  <div class="column">
+    <label for="employee-commission">نسبة المبيعات</label>
+    <div class="input-group">
+      <input type="number" id="employee-commission" placeholder="أدخل نسبة المبيعات (%)">
+      <button class="add-employee-btn"><i class='bx bx-plus'></i></button>
+    </div>
+  </div>
+</div>
+
       
-        <!-- الصف الثاني: تسجيل رقم التليفون، الوظيفة، والراتب -->
-        <div class="row">
-          <div class="column">
-            <label for="employee-phone">رقم التليفون</label>
-            <input type="tel" id="employee-phone" placeholder="أدخل رقم التليفون">
-          </div>
-      
-          <div class="column">
-            <label for="employee-role">الوظيفة</label>
-            <div class="custom-select">
-              <input type="text" id="employee-role" placeholder="اختر الوظيفة" autocomplete="off">
-              <div class="options-list" id="employee-role-options">
-                <div class="option" data-value="مدير">مدير</div>
-                <div class="option" data-value="سائق">سائق</div>
-                <div class="option" data-value="مندوب">مندوب</div>
-                <div class="option" data-value="محاسب">محاسب</div>
-                <div class="option" data-value="أمين مخزن">أمين مخزن</div>
-                <div class="option" data-value="مبيعات">مبيعات</div>
-                <div class="option" data-value="صفحه">صفحه</div>
-              </div>
-            </div>
-          </div>
-      
-          <div class="column">
-            <label for="employee-salary">الراتب</label>
-            <div class="input-group">
-              <input type="number" id="employee-salary" placeholder="أدخل الراتب">
-              <button class="add-employee-btn"><i class='bx bx-plus'></i></button>
-            </div>
-          </div>
-        </div>
-      
-        <!-- جدول الموظفين -->
-        <table class="employee-table">
-          <thead>
-            <tr>
-              <th>اسم الموظف</th>
-              <th>الوظيفة</th>
-              <th>رقم التليفون</th>
-              <th>الراتب</th>
-              <th>تعديل</th>
-              <th>حذف</th>
-            </tr>
-          </thead>
-          <tbody id="employee-body">
-          </tbody>
-        </table>
+<!-- جدول الموظفين -->
+<table class="employee-table">
+  <thead>
+    <tr>
+      <th>اسم الموظف</th>
+      <th>الوظيفة</th>
+      <th>رقم التليفون</th>
+      <th>الراتب</th>
+      <th>تعديل</th>
+      <th>حذف</th>
+    </tr>
+  </thead>
+  <tbody id="employee-body">
+  </tbody>
+</table>
+
       
         <!-- إجمالي الرواتب -->
         <div class="total">

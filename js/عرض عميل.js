@@ -29,17 +29,16 @@ $(document).ready(function() {
         filteredCustomers = allCustomers.filter(function(customer) {
             let customerName = $(customer).find('td').eq(0).text().toLowerCase();
             let matchesSearch = customerName.includes(searchValue);
-            return matchesSearch; // نبحث فقط عن المطابقة بالاسم
+            return matchesSearch; 
         });
     
-        // ترتيب العملاء بناءً على اختيار الفلتر
         if (balanceFilter === "credit") {
             filteredCustomers.sort(function(a, b) {
-                return parseInt($(a).find('td').eq(3).text()) - parseInt($(b).find('td').eq(3).text()); // من الأقدم
+                return parseInt($(a).find('td').eq(3).text()) - parseInt($(b).find('td').eq(3).text()); 
             });
         } else if (balanceFilter === "debt") {
             filteredCustomers.sort(function(a, b) {
-                return parseInt($(b).find('td').eq(3).text()) - parseInt($(a).find('td').eq(3).text()); // من الأحدث
+                return parseInt($(b).find('td').eq(3).text()) - parseInt($(a).find('td').eq(3).text());
             });
         }
     

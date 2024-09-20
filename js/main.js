@@ -37,8 +37,8 @@ function validateForm() {
     }
 
     if (valid) {
-        window.location.href = "الرئيسيه.html"; // توجيه إلى الصفحة الرئيسية
+        window.location.href = "الرئيسيه.html";
     }
     
-    return false; // منع إرسال النموذج بشكل افتراضي
+    return false;
 }

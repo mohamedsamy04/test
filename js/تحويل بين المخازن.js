@@ -308,7 +308,6 @@ $(document).ready(function () {
                     }
                 });
                 updateTable(fromStore);
-                // تصفير الإجمالي بعد الانتهاء
                 $('#transfer-total-amount-text').text('0');
             }
         }

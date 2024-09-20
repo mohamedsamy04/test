@@ -1,210 +1,125 @@
 let employees = [];
-  let currentEditIndex = -1;
+let currentEditIndex = -1;
 
-  function calculateTotalSalary() {
-    let total = employees.reduce((sum, employee) => sum + parseFloat(employee.salary), 0);
-    $('#employee-total-amount-text').text(total);
-  }
+function calculateTotalSalary() {
+  let total = employees.reduce((sum, employee) => sum + (parseFloat(employee.salary) || 0), 0);
+  $('#employee-total-amount-text').text(total);
+}
 
-  function renderEmployees() {
-    let employeeBody = $('#employee-body');
-    employeeBody.empty();
-    employees.forEach((employee, index) => {
-      employeeBody.append(`
-        <tr>
-          <td>${employee.name}</td>
-          <td>${employee.role}</td>
-          <td>${employee.phone}</td>
-          <td>${employee.salary}</td>
-          <td><i class="bx bx-edit edit-employee" data-index="${index}"></i></td>
-          <td><i class="bx bx-trash delete-employee" data-index="${index}"></i></td>
-        </tr>
-      `);
-    });
-    calculateTotalSalary();
-  }
-
-  function resetForm() {
-    $('#employee-name').val('');
-    $('#employee-phone').val('');
-    $('#employee-role').val('');
-    $('#employee-salary').val('');
-    currentEditIndex = -1;
-  }
-
-  $(document).on('click', '.add-employee-btn', function() {
-    let name = $('#employee-name').val();
-    let phone = $('#employee-phone').val();
-    let role = $('#employee-role').val();
-    let salary = $('#employee-salary').val();
-
-    // التحقق من الشروط
-    if (name.length < 10) {
-      Swal.fire({
-        text: 'يجب أن يكون اسم الموظف لا يقل عن 10 أحرف.',
-        icon: 'warning',
-        showConfirmButton: false,
-        timer: 2000,
-        toast: true,
-        position: 'top-end',
-        background: '#ffffff',
-        iconColor: '#ffc107',
-        customClass: {
-          popup: 'small-toast',
-          title: 'small-toast-title',
-          content: 'small-toast-content'
-        }
-      });
-      return;
-    }
-
-    if (phone.length !== 11) {
-      Swal.fire({
-        text: 'يجب أن يكون رقم التليفون 11 رقمًا.',
-        icon: 'warning',
-        showConfirmButton: false,
-        timer: 2000,
-        toast: true,
-        position: 'top-end',
-        background: '#ffffff',
-        iconColor: '#ffc107',
-        customClass: {
-          popup: 'small-toast',
-          title: 'small-toast-title',
-          content: 'small-toast-content'
-        }
-      });
-      return;
-    }
-
-    if (!role) {
-      Swal.fire({
-        text: 'يجب اختيار الوظيفة.',
-        icon: 'warning',
-        showConfirmButton: false,
-        timer: 2000,
-        toast: true,
-        position: 'top-end',
-        background: '#ffffff',
-        iconColor: '#ffc107',
-        customClass: {
-          popup: 'small-toast',
-          title: 'small-toast-title',
-          content: 'small-toast-content'
-        }
-      });
-      return;
-    }
-
-    if (!salary) {
-      Swal.fire({
-        text: 'يجب إدخال الراتب.',
-        icon: 'warning',
-        showConfirmButton: false,
-        timer: 2000,
-        toast: true,
-        position: 'top-end',
-        background: '#ffffff',
-        iconColor: '#ffc107',
-        customClass: {
-          popup: 'small-toast',
-          title: 'small-toast-title',
-          content: 'small-toast-content'
-        }
-      });
-      return;
-    }
-
-    if (currentEditIndex === -1) {
-      employees.push({ name, phone, role, salary });
-      Swal.fire({
-        text: 'تم إضافة الموظف بنجاح.',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 2000,
-        toast: true,
-        position: 'top-end',
-        background: '#ffffff',
-        iconColor: '#28a745',
-        customClass: {
-          popup: 'small-toast',
-          title: 'small-toast-title',
-          content: 'small-toast-content'
-        }
-      });
-    } else {
-      employees[currentEditIndex] = { name, phone, role, salary };
-      currentEditIndex = -1;
-      Swal.fire({
-        text: 'تم تعديل بيانات الموظف بنجاح.',
-        icon: 'success',
-        showConfirmButton: false,
-        timer: 2000,
-        toast: true,
-        position: 'top-end',
-        background: '#ffffff',
-        iconColor: '#28a745',
-        customClass: {
-          popup: 'small-toast',
-          title: 'small-toast-title',
-          content: 'small-toast-content'
-        }
-      });
-    }
-
-    renderEmployees();
-    resetForm();
+function renderEmployees() {
+  let employeeBody = $('#employee-body');
+  employeeBody.empty();
+  employees.forEach((employee, index) => {
+    employeeBody.append(`
+      <tr>
+        <td>${employee.name}</td>
+        <td>${employee.role}</td>
+        <td>${employee.phone}</td>
+        <td>${employee.salary} جنيه و ${employee.commission}% من المبيعات</td>
+        <td><i class="bx bx-edit edit-employee" data-index="${index}"></i></td>
+        <td><i class="bx bx-trash delete-employee" data-index="${index}"></i></td>
+      </tr>
+    `);
   });
+  calculateTotalSalary();
+}
 
-  $(document).on('click', '.edit-employee', function() {
-    let index = $(this).data('index');
-    let employee = employees[index];
-    $('#employee-name').val(employee.name);
-    $('#employee-phone').val(employee.phone);
-    $('#employee-role').val(employee.role);
-    $('#employee-salary').val(employee.salary);
-    currentEditIndex = index;
-  });
+function resetForm() {
+  $('#employee-name').val('');
+  $('#employee-phone').val('');
+  $('#employee-role').val('');
+  $('#employee-salary').val('');
+  $('#employee-commission').val('');
+  currentEditIndex = -1;
+}
 
+$(document).on('click', '.add-employee-btn', function() {
+  let name = $('#employee-name').val();
+  let phone = $('#employee-phone').val();
+  let role = $('#employee-role').val();
+  let salary = $('#employee-salary').val();
+  let commission = $('#employee-commission').val();
 
-$(document).on('click', '.delete-employee', function() {
-    let index = $(this).data('index');
+  if (name.length < 10) {
     Swal.fire({
-      text: 'هل أنت متأكد أنك تريد حذف هذا الموظف؟',
+      text: 'يجب أن يكون اسم الموظف لا يقل عن 10 أحرف.',
       icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'نعم، احذفه!',
-      cancelButtonText: 'إلغاء'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        employees.splice(index, 1);
-        renderEmployees();
-        Swal.fire({
-          text: 'تم حذف الموظف بنجاح.',
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 2000,
-          toast: true,
-          position: 'top-end',
-          background: '#ffffff',
-          iconColor: '#28a745',
-          customClass: {
-            popup: 'small-toast',
-            title: 'small-toast-title',
-            content: 'small-toast-content'
-          }
-        });
+      showConfirmButton: false,
+      timer: 2000,
+      toast: true,
+      position: 'top-end',
+      background: '#ffffff',
+      iconColor: '#ffc107',
+      customClass: {
+        popup: 'small-toast',
+        title: 'small-toast-title',
+        content: 'small-toast-content'
       }
     });
-  });
-  
+    return;
+  }
 
-  $(document).on('click', '.save-employee-btn', function() {
-    localStorage.setItem('employees', JSON.stringify(employees));
+  if (phone.length !== 11) {
     Swal.fire({
-      text: 'تم حفظ السجل بنجاح.',
+      text: 'يجب أن يكون رقم التليفون 11 رقمًا.',
+      icon: 'warning',
+      showConfirmButton: false,
+      timer: 2000,
+      toast: true,
+      position: 'top-end',
+      background: '#ffffff',
+      iconColor: '#ffc107',
+      customClass: {
+        popup: 'small-toast',
+        title: 'small-toast-title',
+        content: 'small-toast-content'
+      }
+    });
+    return;
+  }
+
+  if (!role) {
+    Swal.fire({
+      text: 'يجب اختيار الوظيفة.',
+      icon: 'warning',
+      showConfirmButton: false,
+      timer: 2000,
+      toast: true,
+      position: 'top-end',
+      background: '#ffffff',
+      iconColor: '#ffc107',
+      customClass: {
+        popup: 'small-toast',
+        title: 'small-toast-title',
+        content: 'small-toast-content'
+      }
+    });
+    return;
+  }
+
+  if (!salary || !commission) {
+    Swal.fire({
+      text: 'يجب إدخال كل من الراتب ونسبة المبيعات.',
+      icon: 'warning',
+      showConfirmButton: false,
+      timer: 2000,
+      toast: true,
+      position: 'top-end',
+      background: '#ffffff',
+      iconColor: '#ffc107',
+      customClass: {
+        popup: 'small-toast',
+        title: 'small-toast-title',
+        content: 'small-toast-content'
+      }
+    });
+    return;
+  }
+
+  if (currentEditIndex === -1) {
+    employees.push({ name, phone, role, salary, commission });
+    Swal.fire({
+      text: 'تم إضافة الموظف بنجاح.',
       icon: 'success',
       showConfirmButton: false,
       timer: 2000,
@@ -218,7 +133,92 @@ $(document).on('click', '.delete-employee', function() {
         content: 'small-toast-content'
       }
     });
+  } else {
+    employees[currentEditIndex] = { name, phone, role, salary, commission };
+    currentEditIndex = -1;
+    Swal.fire({
+      text: 'تم تعديل بيانات الموظف بنجاح.',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 2000,
+      toast: true,
+      position: 'top-end',
+      background: '#ffffff',
+      iconColor: '#28a745',
+      customClass: {
+        popup: 'small-toast',
+        title: 'small-toast-title',
+        content: 'small-toast-content'
+      }
+    });
+  }
+
+  renderEmployees();
+  resetForm();
+});
+
+$(document).on('click', '.edit-employee', function() {
+  let index = $(this).data('index');
+  let employee = employees[index];
+  $('#employee-name').val(employee.name);
+  $('#employee-phone').val(employee.phone);
+  $('#employee-role').val(employee.role);
+  $('#employee-salary').val(employee.salary);
+  $('#employee-commission').val(employee.commission);
+  currentEditIndex = index;
+});
+
+$(document).on('click', '.delete-employee', function() {
+  let index = $(this).data('index');
+  Swal.fire({
+    text: 'هل أنت متأكد أنك تريد حذف هذا الموظف؟',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'نعم، احذفه!',
+    cancelButtonText: 'إلغاء'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      employees.splice(index, 1);
+      renderEmployees();
+      Swal.fire({
+        text: 'تم حذف الموظف بنجاح.',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2000,
+        toast: true,
+        position: 'top-end',
+        background: '#ffffff',
+        iconColor: '#28a745',
+        customClass: {
+          popup: 'small-toast',
+          title: 'small-toast-title',
+          content: 'small-toast-content'
+        }
+      });
+    }
   });
+});
+
+$(document).on('click', '.save-employee-btn', function() {
+  localStorage.setItem('employees', JSON.stringify(employees));
+  Swal.fire({
+    text: 'تم حفظ السجل بنجاح.',
+    icon: 'success',
+    showConfirmButton: false,
+    timer: 2000,
+    toast: true,
+    position: 'top-end',
+    background: '#ffffff',
+    iconColor: '#28a745',
+    customClass: {
+      popup: 'small-toast',
+      title: 'small-toast-title',
+      content: 'small-toast-content'
+    }
+  });
+});
 
   $(document).ready(function() {
     let savedEmployees = localStorage.getItem('employees');
@@ -328,7 +328,6 @@ $(document).on('click', '.delete-employee', function() {
     
         if (employeeName && transactionType && transactionAmount) {
             if (editingRow) {
-                // Update the existing row
                 editingRow.find('td').eq(0).text(employeeName);
                 editingRow.find('td').eq(1).text(transactionType);
                 editingRow.find('td').eq(2).text(transactionAmount);
@@ -350,7 +349,6 @@ $(document).on('click', '.delete-employee', function() {
                     }
                 });
             } else {
-                // Add a new row
                 let newRow = `
                     <tr>
                         <td>${employeeName}</td>
